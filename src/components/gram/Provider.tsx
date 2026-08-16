@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Pencil, Plus, Trash2, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -477,8 +477,4 @@ function DeleteDialog({ id, onClose }: { id: string | null; onClose: () => void 
       </AlertDialogContent>
     </AlertDialog>
   );
-}
-
-export function useProviderPlaceholder() {
-  return useMemo(() => null, []);
 }
