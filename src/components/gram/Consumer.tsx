@@ -351,7 +351,7 @@ export function ConsumerApp({
               min={2}
               max={50}
               step={2}
-              onValueChange={(v) => setMaxDistance(v[0])}
+              onValueChange={(v) => setMaxDistance(v[0] ?? 40)}
               className="mt-3"
             />
           </div>
@@ -364,7 +364,7 @@ export function ConsumerApp({
               min={200}
               max={10000}
               step={100}
-              onValueChange={(v) => setMaxPrice(v[0])}
+              onValueChange={(v) => setMaxPrice(v[0] ?? 8000)}
               className="mt-3"
             />
           </div>
@@ -390,7 +390,7 @@ export function ConsumerApp({
           </div>
         </div>
 
-        {results.length === 0 ? (
+        {results.length === 0 || !best ? (
           <EmptyState text={t("noResults")} />
         ) : (
           <>
