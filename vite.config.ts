@@ -1,20 +1,19 @@
-import { defineConfig } from "@lovable.dev/vite-tanstack-config";
-import { nitro } from "nitro/vite";
+import { defineConfig } from "vite";
+import { tanstackStart } from "@tanstack/react-start/plugin/vite";
+import viteReact from "@vitejs/plugin-react";
 
 export default defineConfig({
-  base: '/gaon-ghar-setu/',
+  base: "/gaon-ghar-setu/",
 
-  tanstackStart: {
-    server: { entry: "server" },
-    prerender: {
-      enabled: true,
-      autoSubfolderIndex: true,
-      autoStaticPathsDiscovery: true,
-      crawlLinks: true,
-    },
-  },
-
-  vite: {
-    plugins: [nitro({ preset: "node-server" })],
-  },
+  plugins: [
+    tanstackStart({
+      prerender: {
+        enabled: true,
+        autoSubfolderIndex: true,
+        autoStaticPathsDiscovery: true,
+        crawlLinks: true,
+      },
+    }),
+    viteReact(),
+  ],
 });
