@@ -2,6 +2,8 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 import { nitro } from "nitro/vite";
 
 export default defineConfig({
+  base: '/gaon-ghar-setu/',
+
   tanstackStart: {
     server: { entry: "server" },
     prerender: {
@@ -11,6 +13,7 @@ export default defineConfig({
       crawlLinks: true,
     },
   },
+
   vite: {
     plugins: [nitro({ preset: "node-server" })],
   },
